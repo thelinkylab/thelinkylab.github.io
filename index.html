@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Linky Lab Co., Ltd.</title>
+  <title>더링키랩 | The Linky Lab Co., Ltd.</title>
+  <meta name="description" content="더링키랩은 소셜 앱 0cm을 운영하는 회사입니다. 새로운 인연을 만나는 가장 스마트한 방법." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
   <style>
     :root {
-      --primary: #2952d9;
-      --primary-light: #e7ecff;
+      --primary: #FF6B35;
+      --primary-dark: #E55A2B;
+      --primary-light: #FFF3ED;
       --bg: #ffffff;
       --text: #111827;
       --muted: #6b7280;
-      --section-bg: #f9fafb;
+      --section-bg: #FAFAFA;
       --max-width: 1080px;
-      --radius-lg: 18px;
+      --radius-lg: 20px;
       --radius-md: 12px;
       --radius-full: 999px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -49,7 +51,6 @@
       color: inherit;
     }
 
-    /* Layout */
     .page {
       min-height: 100vh;
       display: flex;
@@ -63,95 +64,91 @@
       padding: 0 20px;
     }
 
-    /* Header / Nav */
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      height: 64px;
     }
 
     .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: 0.02em;
+      font-weight: 700;
+      font-size: 17px;
     }
 
     .nav-logo-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 0% 0%, #60a5fa, #2952d9);
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #FF6B35, #FF8F65);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 800;
     }
 
-    .nav-menu {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 8px;
       font-size: 14px;
       font-weight: 500;
       color: var(--muted);
     }
 
-    .nav-menu a {
-      padding: 6px 10px;
+    .nav-links a {
+      padding: 6px 12px;
       border-radius: 999px;
       transition: background 0.15s ease, color 0.15s ease;
     }
 
-    .nav-menu a:hover {
+    .nav-links a:hover {
       background: var(--primary-light);
       color: var(--primary);
     }
 
     .nav-cta {
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 999px;
       background: var(--primary);
-      color: #fff;
+      color: #fff !important;
       font-size: 13px;
-      font-weight: 500;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.4);
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease;
+      font-weight: 600;
+      transition: transform 0.12s ease, background 0.12s ease;
     }
 
     .nav-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.55);
-      background: #1e3aa8;
+      background: var(--primary-dark);
     }
 
     /* Mobile nav */
-    .nav-menu-toggle {
+    .nav-toggle {
       display: none;
       background: none;
       border: none;
       padding: 8px;
-      border-radius: 999px;
+      cursor: pointer;
     }
 
-    .nav-menu-toggle span,
-    .nav-menu-toggle span::before,
-    .nav-menu-toggle span::after {
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
       display: block;
       width: 20px;
       height: 2px;
@@ -160,32 +157,25 @@
       position: relative;
     }
 
-    .nav-menu-toggle span::before,
-    .nav-menu-toggle span::after {
+    .nav-toggle span::before,
+    .nav-toggle span::after {
       content: "";
       position: absolute;
       left: 0;
     }
 
-    .nav-menu-toggle span::before {
-      top: -6px;
-    }
+    .nav-toggle span::before { top: -6px; }
+    .nav-toggle span::after { top: 6px; }
 
-    .nav-menu-toggle span::after {
-      top: 6px;
-    }
-
-    .nav-menu-mobile {
+    .nav-mobile {
       display: none;
-      border-top: 1px solid rgba(148, 163, 184, 0.25);
-      background: rgba(255, 255, 255, 0.96);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.98);
     }
 
-    .nav-menu-mobile.open {
-      display: block;
-    }
+    .nav-mobile.open { display: block; }
 
-    .nav-menu-mobile-inner {
+    .nav-mobile-inner {
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -193,466 +183,335 @@
       font-size: 14px;
     }
 
-    .nav-menu-mobile-inner a {
-      padding: 8px 0;
+    .nav-mobile-inner a {
+      padding: 10px 0;
       color: var(--muted);
     }
 
-    .nav-menu-mobile-inner a:hover {
-      color: var(--primary);
-    }
+    .nav-mobile-inner a:hover { color: var(--primary); }
 
     /* Hero */
     .hero {
-      padding: 48px 0 70px;
+      padding: 60px 0 80px;
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 42px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      gap: 40px;
     }
 
-    .eyebrow {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 10px;
+      padding: 6px 14px;
       border-radius: 999px;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
       background: var(--primary-light);
       color: var(--primary);
-      margin-bottom: 12px;
     }
 
-    .eyebrow-dot {
-      width: 6px;
-      height: 6px;
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background: #22c55e;
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .hero-title-main {
-      font-size: clamp(28px, 4vw, 34px);
-      font-weight: 700;
-      margin-bottom: 10px;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
-    .hero-title-sub {
-      font-size: clamp(18px, 2.2vw, 22px);
-      font-weight: 500;
-      color: var(--muted);
-      margin-bottom: 18px;
+    .hero-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-top: 16px;
     }
 
-    .hero-body {
-      font-size: 14px;
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #FF6B35, #FF8F65);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 16px;
       line-height: 1.7;
       color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 28px;
+      max-width: 520px;
+      margin-top: 12px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 11px 20px;
-      border-radius: var(--radius-full);
-      background: linear-gradient(135deg, #2952d9, #4f46e5);
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        filter 0.12s ease;
+      margin-top: 28px;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.03);
-      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.22);
-    }
-
-    .btn-ghost {
+    .btn-store {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px 16px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(255, 255, 255, 0.7);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      cursor: pointer;
-      transition: background 0.12s ease, border-color 0.12s ease,
-        color 0.12s ease;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(241, 245, 249, 0.9);
-      color: #0f172a;
-    }
-
-    .hero-meta {
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: #111827;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      border: none;
+      cursor: pointer;
     }
 
-    .hero-meta-badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.8);
-      font-size: 11px;
+    .btn-store:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
-    /* Hero image card */
-    .hero-visual-wrap {
-      display: flex;
-      justify-content: flex-end;
+    .btn-store-icon {
+      font-size: 22px;
     }
 
-    .hero-visual {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 28px;
-      background: radial-gradient(circle at 0% 0%, #eff6ff, #e0f2fe, #eef2ff);
-      padding: 18px 18px 20px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+    .btn-store-text {
+      text-align: left;
+      line-height: 1.2;
     }
 
-    .hero-visual-chip {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      padding: 4px 10px;
-      border-radius: 999px;
+    .btn-store-text small {
       font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: rgba(15, 23, 42, 0.85);
-      color: #e5e7eb;
+      font-weight: 400;
+      opacity: 0.7;
     }
 
-    .hero-visual-image {
-      width: 100%;
-      height: 210px;
-      border-radius: 22px;
-      background: #0f172a url("hero.jpg") center/cover no-repeat;
-      margin-bottom: 16px;
-    }
-
-    .hero-visual-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .hero-visual-footer-left {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-visual-footer-left strong {
+    .btn-store-text strong {
       display: block;
-      font-size: 13px;
-      color: #0f172a;
+      font-size: 15px;
     }
 
-    .hero-visual-footer-right {
+    /* App preview */
+    .hero-app-preview {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 11px;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
     }
 
-    .status-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    .app-icon-large {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #FF6B35, #FF8F65);
+      box-shadow: 0 16px 40px rgba(255, 107, 53, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 42px;
+      font-weight: 800;
     }
 
-    /* Sections */
-    section {
-      padding: 70px 0;
-    }
-
-    section:nth-of-type(odd) {
+    /* Features */
+    .features {
+      padding: 80px 0;
       background: var(--section-bg);
     }
 
     .section-header {
-      margin-bottom: 34px;
-      text-align: left;
+      text-align: center;
+      margin-bottom: 48px;
     }
 
     .section-kicker {
-      font-size: 12px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--primary);
-      margin-bottom: 6px;
-      font-weight: 600;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .section-title {
-      font-size: 24px;
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 700;
       margin-bottom: 8px;
     }
 
     .section-subtitle {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
       max-width: 480px;
+      margin: 0 auto;
     }
 
-    /* Vision cards ("우리의 비전") */
-    .cards-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .card {
+    .feature-card {
+      background: #fff;
       border-radius: var(--radius-lg);
-      background: #ffffff;
-      padding: 18px 16px 20px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(226, 232, 240, 0.9);
+      padding: 28px 24px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--primary-light);
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .card-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--primary);
-    }
-
-    .card-title {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .card-body {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* Values section */
-    .values-list {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
-      gap: 32px;
-      align-items: flex-start;
-    }
-
-    .values-quote {
-      padding: 18px 18px 20px;
-      border-radius: var(--radius-lg);
-      background: #111827;
-      color: #e5e7eb;
-      font-size: 13px;
-      line-height: 1.8;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .values-quote::before {
-      content: "“";
-      position: absolute;
-      font-size: 72px;
-      opacity: 0.08;
-      top: -18px;
-      left: 16px;
-    }
-
-    .values-items {
-      display: grid;
-      gap: 18px;
-    }
-
-    .value-item-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .value-item-body {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    /* Contact section */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 32px;
-      align-items: flex-start;
-    }
-
-    .contact-info {
-      font-size: 14px;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .contact-info strong {
-      color: #0f172a;
-    }
-
-    .pill {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 12px;
-      margin-bottom: 12px;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
     }
 
-    .pill span {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
-
-    .pill strong {
-      font-size: 12px;
-    }
-
-    .contact-email-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 4px;
-      color: var(--primary);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .contact-form {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 20px 18px 18px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.07);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-    }
-
-    .contact-form-title {
+    .feature-title {
       font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    .form-group {
-      margin-bottom: 14px;
-      font-size: 13px;
+    .feature-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
     }
 
-    .form-label {
-      display: flex;
-      justify-content: space-between;
+    /* About */
+    .about {
+      padding: 80px 0;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      font-weight: 500;
-      margin-bottom: 4px;
     }
 
-    .form-label span.required {
-      font-size: 11px;
-      color: #ef4444;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 9px 11px;
-      border-radius: 10px;
-      border: 1px solid rgba(209, 213, 219, 0.95);
-      font-size: 13px;
-      outline: none;
-      transition: border-color 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease;
-    }
-
-    .form-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.18);
-      background: #f9fafb;
-    }
-
-    .form-checkbox-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 12px;
+    .about-content {
+      font-size: 15px;
+      line-height: 1.8;
       color: var(--muted);
     }
 
-    .form-checkbox-row input[type="checkbox"] {
-      margin-top: 2px;
+    .about-content h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
     }
 
-    .form-helper {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .form-actions {
-      display: flex;
-      justify-content: flex-end;
+    .about-content p + p {
       margin-top: 12px;
     }
 
-    .form-submit {
-      border: none;
-      cursor: pointer;
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--section-bg);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 80px 0;
+      background: var(--section-bg);
+    }
+
+    .contact-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      transition: transform 0.12s ease, background 0.12s ease;
+    }
+
+    .contact-email:hover {
+      transform: translateY(-2px);
+      background: var(--primary-dark);
+    }
+
+    .contact-sub {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
     /* Footer */
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 18px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 24px 0;
       font-size: 12px;
       color: var(--muted);
-      background: #f9fafb;
+      background: #fff;
     }
 
     .footer-inner {
@@ -660,7 +519,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
 
     .footer-brand {
@@ -668,76 +527,81 @@
       color: #4b5563;
     }
 
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      transition: color 0.12s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
     /* Responsive */
-    @media (max-width: 960px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; }
+
+      .hero { padding: 40px 0 60px; }
+
+      .features-grid {
+        grid-template-columns: 1fr;
       }
 
-      .hero-visual-wrap {
-        justify-content: flex-start;
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
 
-      .hero {
-        padding-top: 32px;
+      .about-stats {
+        order: -1;
       }
 
-      .cards-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .hero-app-preview {
+        flex-direction: column;
       }
 
-      .values-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .contact-layout {
-        grid-template-columns: minmax(0, 1fr);
+      .contact-card {
+        padding: 28px 20px;
       }
     }
 
-    @media (max-width: 720px) {
-      .nav-menu {
-        display: none;
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .nav-menu-toggle {
-        display: inline-flex;
-      }
-
-      .hero {
-        padding: 32px 0 52px;
-      }
-
-      section {
-        padding: 52px 0;
-      }
-
-      .cards-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .btn-store {
+        width: 100%;
+        max-width: 260px;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- Header / Nav -->
+    <!-- Header -->
     <header>
       <div class="container">
         <nav class="nav">
-          <div class="nav-left">
-            <div class="nav-logo-badge">L</div>
-            <div>The Linky Lab Co., Ltd.</div>
-          </div>
-          <div class="nav-menu">
-            <a href="#main">메인</a>
-            <a href="#vision">환영</a>
-            <a href="#contact">피드백</a>
-            <a href="#more">More</a>
+          <a href="#" class="nav-left">
+            <div class="nav-logo-badge">0</div>
+            <div>더링키랩</div>
+          </a>
+          <div class="nav-links">
+            <a href="#features">기능</a>
+            <a href="#about">회사 소개</a>
             <a href="#contact" class="nav-cta">문의하기</a>
           </div>
           <button
-            class="nav-menu-toggle"
-            aria-label="Toggle navigation"
+            class="nav-toggle"
+            aria-label="메뉴 열기"
             type="button"
             onclick="toggleMobileNav()"
           >
@@ -745,265 +609,168 @@
           </button>
         </nav>
       </div>
-      <div id="mobileNav" class="nav-menu-mobile">
-        <div class="nav-menu-mobile-inner">
-          <a href="#main" onclick="closeMobileNav()">메인</a>
-          <a href="#vision" onclick="closeMobileNav()">환영</a>
-          <a href="#contact" onclick="closeMobileNav()">피드백</a>
-          <a href="#more" onclick="closeMobileNav()">More</a>
+      <div id="mobileNav" class="nav-mobile">
+        <div class="nav-mobile-inner">
+          <a href="#features" onclick="closeMobileNav()">기능</a>
+          <a href="#about" onclick="closeMobileNav()">회사 소개</a>
           <a href="#contact" onclick="closeMobileNav()">문의하기</a>
         </div>
       </div>
     </header>
 
-    <!-- Hero -->
-    <main id="main">
-      <section class="hero">
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="main">
         <div class="container">
           <div class="hero-inner">
             <div>
-              <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                <span>모바일 앱 전문</span>
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                지금 바로 만나보세요
               </div>
-              <h1 class="hero-title-main">디지털 솔루션 및 소프트웨어 개발 전문</h1>
-              <p class="hero-title-sub">
-                모바일 앱 개발과 디지털 커뮤니케이션 솔루션에 집중하는 테크 파트너입니다.
+              <h1 class="hero-title">
+                새로운 인연을 만나는<br/>
+                가장 <span class="highlight">스마트한 방법</span>
+              </h1>
+              <p class="hero-desc">
+                0cm은 새로운 사람과 설레는 대화를 시작할 수 있는 소셜 앱입니다.
+                MBTI, 성별 기반 매칭으로 나와 맞는 사람을 찾고,
+                짧은 영상과 사진으로 자신을 표현해 보세요.
               </p>
-              <p class="hero-body">
-                The Linky Lab Co., Ltd.는 최신 모바일 통신 기술과 소프트웨어 개발 역량을 기반으로
-                고객에게 혁신적이고 효율적인 디지털 경험을 제공합니다. 아이디어 단계부터 출시 이후
-                운영까지, 가치 있는 제품을 만들기 위해 함께 고민합니다.
-              </p>
-              <div class="hero-actions">
-                <button
-                  type="button"
-                  class="btn-primary"
-                  onclick="document.getElementById('vision').scrollIntoView({ behavior: 'smooth' });"
-                >
-                  더 알아보기
-                </button>
-                <button
-                  type="button"
-                  class="btn-ghost"
-                  onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });"
-                >
-                  프로젝트 문의하기
-                </button>
-              </div>
-              <div class="hero-meta">
-                <div class="hero-meta-badge">
-                  모바일 앱 · 통신 기술 · 소프트웨어 개발
-                </div>
-              </div>
             </div>
 
-            <div class="hero-visual-wrap">
-              <div class="hero-visual">
-                <div class="hero-visual-chip">DIGITAL SOLUTIONS</div>
-                <div class="hero-visual-image">
+            <div class="hero-app-preview">
+              <div class="app-icon-large">0</div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="https://apps.apple.com/kr/app/0cm-%EC%9D%B5%EB%AA%85%EC%9D%B4%EB%9D%BC-%EC%84%A4%EB%A0%88%EB%8A%94-%EB%9E%9C%EC%B1%97-%EC%B1%84%ED%8C%85-%EB%9E%9C%EB%8D%A4-%EC%B9%9C%EA%B5%AC/id6752595582" target="_blank" class="btn-store">
+                <div class="btn-store-icon">&#63743;</div>
+                <div class="btn-store-text">
+                  <small>Download on the</small>
+                  <strong>App Store</strong>
                 </div>
-                <div class="hero-visual-footer">
-                  <div class="hero-visual-footer-left">
-                    <strong>End-to-End 모바일 앱 개발</strong>
-                    기획 · 설계 · 개발 · 운영까지 전 과정을 함께합니다.
-                  </div>
-                  <div class="hero-visual-footer-right">
-                    <span class="status-dot"></span>
-                    <span>Now accepting new projects</span>
-                  </div>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.suda.linky.linku" target="_blank" class="btn-store">
+                <div class="btn-store-icon">&#9654;</div>
+                <div class="btn-store-text">
+                  <small>GET IT ON</small>
+                  <strong>Google Play</strong>
                 </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="features" id="features">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Features</div>
+            <h2 class="section-title">0cm만의 특별한 기능</h2>
+            <p class="section-subtitle">
+              단순한 채팅을 넘어, 새로운 소셜 경험을 제공합니다.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#127919;</div>
+              <div class="feature-title">맞춤형 매칭</div>
+              <p class="feature-body">
+                MBTI, 성별 기반의 스마트한 필터로
+                나와 잘 맞는 상대를 빠르게 찾을 수 있습니다.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">&#127909;</div>
+              <div class="feature-title">모먼츠</div>
+              <p class="feature-body">
+                짧은 영상과 사진으로 나를 표현하고,
+                스와이프로 다른 사람들의 일상을 탐색해 보세요.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">&#128171;</div>
+              <div class="feature-title">클린 모드</div>
+              <p class="feature-body">
+                욕설이나 불쾌한 단어를 자동으로 가려주는
+                클린 모드로 쾌적한 채팅 환경을 만듭니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-inner">
+            <div class="about-content">
+              <div class="section-kicker">About Us</div>
+              <h2>더링키랩</h2>
+              <p>
+                The Linky Lab Co., Ltd.(더링키랩)은
+                사람과 사람을 연결하는 소셜 서비스를 만드는 회사입니다.
+              </p>
+              <p>
+                저희는 소셜 앱 <strong>0cm</strong>을 통해
+                누구나 부담 없이 새로운 인연을 만날 수 있는
+                안전하고 즐거운 공간을 제공하고 있습니다.
+              </p>
+              <p>
+                더 나은 소셜 경험을 위해
+                끊임없이 고민하고 발전하겠습니다.
+              </p>
+            </div>
+            <div class="about-stats">
+              <div class="stat-card">
+                <div class="stat-value">0cm</div>
+                <div class="stat-label">대표 서비스</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">iOS & Android</div>
+                <div class="stat-label">멀티 플랫폼 지원</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">19+</div>
+                <div class="stat-label">성인 전용 서비스</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">5.0</div>
+                <div class="stat-label">App Store 평점</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Vision / Projects -->
-      <section id="vision">
+      <!-- Contact -->
+      <section class="contact" id="contact">
         <div class="container">
           <div class="section-header">
-            <div class="section-kicker">우리의 비전</div>
-            <h2 class="section-title">모바일 중심의 디지털 커뮤니케이션 솔루션</h2>
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">문의하기</h2>
             <p class="section-subtitle">
-              링키랩은 모바일 앱 개발과 디지털 통신 기술을 결합해 고객의 비즈니스를 성장시키는
-              실질적인 솔루션을 제공합니다.
+              서비스 이용 중 궁금한 점이나 제안이 있으시면 언제든 연락해 주세요.
             </p>
           </div>
 
-          <div class="cards-grid">
-            <!-- 프로젝트 · 모바일 앱 -->
-            <article class="card">
-              <div class="card-label">프로젝트</div>
-              <div class="card-title">모바일 앱</div>
-              <p class="card-body">
-                링키랩은 모바일 앱 개발 및 디지털 커뮤니케이션 솔루션을 전문으로 하는 기업입니다.
-                최신 모바일 통신 기술과 개발 경험을 바탕으로 사용자 경험 중심의 서비스를 구축합니다.
-              </p>
-            </article>
-
-            <!-- 통신 기술 · 디지털 솔루션 -->
-            <article class="card">
-              <div class="card-label">통신 기술</div>
-              <div class="card-title">디지털 솔루션</div>
-              <p class="card-body">
-                고객의 요구에 맞춰 맞춤형 모바일 앱과 디지털 솔루션을 설계·구현합니다. 안정적인
-                인프라와 실시간 커뮤니케이션 기술을 통해 비즈니스 가치를 극대화합니다.
-              </p>
-            </article>
-
-            <!-- 소프트웨어 개발 · 최신 기술 -->
-            <article class="card">
-              <div class="card-label">소프트웨어 개발</div>
-              <div class="card-title">최신 기술</div>
-              <p class="card-body">
-                비즈니스 요구를 정확히 이해하고, 성능과 유지보수성을 모두 고려한 소프트웨어
-                아키텍처를 제안합니다. 최신 기술 스택을 활용해 확장 가능한 제품을 만듭니다.
-              </p>
-            </article>
-
-            <!-- 가치 제공 · 고객 만족 -->
-            <article class="card">
-              <div class="card-label">가치 제공</div>
-              <div class="card-title">고객 만족</div>
-              <p class="card-body">
-                링키랩은 항상 고객 중심의 관점에서 제품을 바라봅니다. 비즈니스 목표를 함께 정의하고
-                measurable 한 결과를 만들기 위해 끝까지 책임감 있게 함께합니다.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Values -->
-      <section id="more">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-kicker">우리의 가치</div>
-            <h2 class="section-title">혁신 · 전문성 · 품질 · 신뢰</h2>
-            <p class="section-subtitle">
-              링키랩은 고객의 요구를 이해하고 최고의 솔루션을 제공하기 위해, 기술과 경험을
-              꾸준히 쌓아가고 있습니다.
+          <div class="contact-card">
+            <h3>The Linky Lab Co., Ltd.</h3>
+            <p>
+              서비스 관련 문의, 제휴 제안, 기타 궁금한 점이 있으시면<br/>
+              아래 이메일로 연락해 주세요.
             </p>
-          </div>
-
-          <div class="values-list">
-            <div class="values-quote">
-              링키랩은 항상 고객의 실제 문제를 이해하는 것에서 출발합니다.
-              혁신적이면서도 안정적인 솔루션을 통해 비즈니스 성과를 만들어내는 것이
-              우리의 가장 큰 목표입니다.
+            <a href="mailto:contact@linky-app.com" class="contact-email">
+              &#9993;&ensp;contact@linky-app.com
+            </a>
+            <div class="contact-sub">
+              영업일 기준 1~2일 내 답변 드립니다.
             </div>
-            <div class="values-items">
-              <div>
-                <div class="value-item-title">혁신적인 솔루션 제공</div>
-                <p class="value-item-body">
-                  최신 기술과 도구를 적극적으로 도입하여, 고객의 비즈니스를 한 단계
-                  끌어올릴 수 있는 솔루션을 제안합니다. 단순한 기능 구현이 아니라,
-                  실제로 도움이 되는 디지털 경험을 설계합니다.
-                </p>
-              </div>
-              <div>
-                <div class="value-item-title">고객 만족 중심</div>
-                <p class="value-item-body">
-                  긴밀한 커뮤니케이션과 투명한 진행 과정을 통해 고객과 함께 방향을
-                  맞춰 나갑니다. 출시 이후에도 지속적인 개선과 지원으로 신뢰를
-                  쌓아갑니다.
-                </p>
-              </div>
-              <div>
-                <div class="value-item-title">전문성과 신뢰</div>
-                <p class="value-item-body">
-                  모바일 앱과 통신 기술에 대한 깊은 이해를 바탕으로, 안정적인 품질과
-                  예측 가능한 결과물을 제공합니다. 장기적인 파트너십을 지향하며
-                  함께 성장하는 관계를 만들어갑니다.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact / Feedback -->
-      <section id="contact">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-kicker">피드백 & 문의</div>
-            <h2 class="section-title">함께 만들고 싶은 프로젝트가 있으신가요?</h2>
-            <p class="section-subtitle">
-              간단한 아이디어 단계라도 언제든지 편하게 문의해주세요. 프로젝트의 방향을 함께
-              정리해 드립니다.
-            </p>
-          </div>
-
-          <div class="contact-layout">
-            <div>
-              <div class="pill">
-                <span>CONTACT</span>
-                <strong>The Linky Lab Co., Ltd.</strong>
-              </div>
-              <div class="contact-info">
-                <div>
-                  <strong>이메일</strong><br />
-                  <a href="mailto:contact@linky-app.com" class="contact-email-link">
-                    contact@linky-app.com
-                  </a>
-                </div>
-                <div>
-                  <strong>협업 분야</strong><br />
-                  모바일 앱 개발, 실시간 커뮤니케이션, 디지털 솔루션 설계 및 구축
-                </div>
-              </div>
-            </div>
-
-            <form
-              class="contact-form"
-              onsubmit="handleContactSubmit(event)"
-            >
-              <div class="contact-form-title">문의 메일 구독</div>
-
-              <div class="form-group">
-                <label class="form-label">
-                  <span>Email</span>
-                  <span class="required">* 필수</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  class="form-input"
-                  placeholder="you@example.com"
-                />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">
-                  <span>뉴스레터</span>
-                </label>
-                <div class="form-checkbox-row">
-                  <input
-                    type="checkbox"
-                    id="newsletter"
-                    name="newsletter"
-                    checked
-                  />
-                  <label for="newsletter">
-                    Yes, subscribe me to your newsletter.
-                  </label>
-                </div>
-                <div class="form-helper">
-                  가끔씩 프로젝트 소식과 서비스 관련 업데이트를 보내드립니다.
-                </div>
-              </div>
-
-              <div class="form-actions">
-                <button
-                  type="submit"
-                  class="btn-primary form-submit"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </section>
@@ -1014,10 +781,11 @@
       <div class="container">
         <div class="footer-inner">
           <div class="footer-brand">
-            © 2025 The Linky Lab Co., Ltd. All rights reserved.
+            &copy; 2025 The Linky Lab Co., Ltd. All rights reserved.
           </div>
-          <div>
-            contact@linky-app.com
+          <div class="footer-links">
+            <a href="mailto:contact@linky-app.com">contact@linky-app.com</a>
+            <a href="/csae-policy.html">CSAE Policy</a>
           </div>
         </div>
       </div>
@@ -1026,24 +794,11 @@
 
   <script>
     function toggleMobileNav() {
-      const nav = document.getElementById("mobileNav");
-      nav.classList.toggle("open");
+      document.getElementById("mobileNav").classList.toggle("open");
     }
 
     function closeMobileNav() {
-      const nav = document.getElementById("mobileNav");
-      nav.classList.remove("open");
-    }
-
-    function handleContactSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const email = form.email.value.trim();
-      if (!email) return;
-
-      // 여기서는 실제 전송은 하지 않고 알림만 띄웁니다.
-      alert("구독이 신청되었습니다. 감사합니다! (" + email + ")");
-      form.reset();
+      document.getElementById("mobileNav").classList.remove("open");
     }
   </script>
 </body>
